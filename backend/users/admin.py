@@ -32,8 +32,5 @@ class CustomUserAdmin(UserAdmin):
 
 admin.site.register(User, CustomUserAdmin)
 
-
-
-
 admin.site.site_title = "ps4Shop"
 admin.site.site_header = "welcome to shop"
