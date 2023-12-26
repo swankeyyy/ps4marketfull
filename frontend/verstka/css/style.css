@@ -1,0 +1,24 @@
+
+
+
+
+.header__icon{
+    height: 18px;
+}
+
+
+
+
+
+/* single */
+.poster_img {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    height:350px;
+}
+
+.price {
+    font-size: 40px;
+    margin-left: 20px;
+    color: brown;
+}
