@@ -28,7 +28,12 @@ export default createStore({
         }
     },
     actions: {
-
+        logined({state, commit}) {
+            if (localStorage.token) {
+                commit('set_auth', true)
+            }
+            console.log(state.isAuth)
+        }
     },
     modules: {
 

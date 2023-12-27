@@ -24,7 +24,7 @@
 
                 <button type="button" @click="logIn" class="btn btn-success" data-bs-dismiss="modal">Авторизация
                 </button>
-                <button type="button" @click="notclick" class="btn btn-primary" data-bs-dismiss="modal">Регистрация
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Регистрация
                 </button>
             </div>
         </div>
@@ -40,20 +40,17 @@ export default {
 
     data() {
         return {
-
             username: '',
             password: '',
-
         }
     },
     methods: {
         ...mapMutations({
-
             set_auth: "set_auth",
-
         }),
         ...mapGetters({
-            url: "get_backend_url"
+            url: "get_backend_url",
+            get_auth: "get_auth"
         }),
         async logIn() {
             if (this.username.length > 3 && this.password.length > 3) {
@@ -70,20 +67,8 @@ export default {
             } else {
                 alert("Логин должен содержать не менее 4 символов, пароль не менее 7")
             }
-
-
         },
-        notclick() {
-            localStorage.removeItem('a')
-
-
-        },
-
     },
-    mounted(){
-
-    }
-
 }
 </script>
 
