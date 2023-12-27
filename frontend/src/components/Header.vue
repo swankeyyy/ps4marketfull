@@ -48,8 +48,5 @@ export default {
 </script>
 
 <style scoped>
-.container {
-    font-size: 20px;
-    font-family: Comic Sans MS, Comic Sans, cursive;
-}
+
 </style>
