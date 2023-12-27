@@ -24,7 +24,8 @@
 
                 <button type="button" @click="logIn" class="btn btn-success" data-bs-dismiss="modal">Авторизация
                 </button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Регистрация
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                        @click="this.$router.push(registration)">Регистрация
                 </button>
             </div>
         </div>
@@ -34,9 +35,15 @@
 <script>
 import {mapGetters, mapMutations, mapState} from "vuex";
 import axios from "axios";
+import registration from "@/components/pages/registration.vue";
 
 export default {
     name: "profile_modal",
+    computed: {
+        registration() {
+            return registration
+        }
+    },
 
     data() {
         return {

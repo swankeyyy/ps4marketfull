@@ -5,7 +5,10 @@
 </template>
 
 <style>
-
+.container {
+    font-size: 20px;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+}
 </style>
 <script setup>
 
