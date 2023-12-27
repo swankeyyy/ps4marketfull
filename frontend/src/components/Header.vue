@@ -24,6 +24,7 @@
                             </li>
                             <profile_bar />
                             <basket_bar />
+                            <logout_bar />
                         </ul>
                     </div>
                 </div>
@@ -38,10 +39,11 @@ import Topline from "@/components/UI/header/topline.vue";
 import Header_categories from "@/components/UI/header/header_categories.vue";
 import Profile_bar from "@/components/UI/header/profile_bar.vue";
 import Basket_bar from "@/components/UI/header/basket_bar.vue";
+import Logout_bar from "@/components/UI/header/logout_bar.vue";
 
 export default {
     name: "Header",
-    components: {Basket_bar, Profile_bar, Header_categories, Topline}
+    components: {Logout_bar, Basket_bar, Profile_bar, Header_categories, Topline}
 }
 </script>
 
