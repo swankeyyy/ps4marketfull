@@ -8,7 +8,7 @@ urlpatterns = [
     path('auth/', include('djoser.urls.authtoken')),
     path('admin/', admin.site.urls),
     path('drf-auth/', include('rest_framework.urls')),
-
+    path('api/users/', include('users.urls')),
 ]
 
 if settings.DEBUG:
