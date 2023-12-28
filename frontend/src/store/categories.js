@@ -20,7 +20,6 @@ export const categories = {
             try {
                 let response = await axios.get( 'http://127.0.0.1:8000/api/products/categories/')
                 commit('setCategory_list', response.data)
-
             } catch (e) {
                 console.log(e)
             }
