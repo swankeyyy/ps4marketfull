@@ -32,8 +32,10 @@
                     </div>
                 </div>
                 <div class="info_row">Фото профиля:
-                    <div class="inner"><input class="form-control" type="text" placeholder="Почтовый ящик"
-                                              v-model="email">
+                    <div class="inner">
+                        <input type="file" ref="file" class="file-input" @change="filechange"
+                               placeholder="Добавьте фото">
+                        <button @click="uploader">click</button>
                     </div>
                 </div>
                 <button type="button" class="btn btn-primary" @click="updater">Обновить</button>
@@ -56,12 +58,37 @@ export default {
             email: '',
             date_birth: '',
             token: localStorage.getItem('token'),
+            file: '',
+            id: null,
         }
     },
     methods: {
         ...mapGetters({
             url: "get_backend_url",
         }),
+
+        filechange() {
+            this.file = this.$refs.file.files.item(0)
+        },
+
+
+        async uploader() {
+            let formData = new FormData();
+            formData.append('file', this.file);
+
+
+            try {
+                let response = await axios.put(this.url() + `api/users/uploadprofile/${this.id}`,
+                    formData,
+
+                )
+                console.log(response);
+            } catch (e) {
+                console.log(e);
+            }
+        }
+        ,
+
         async updater() {
             try {
                 let data = {
@@ -81,15 +108,14 @@ export default {
         try {
             axios.defaults.headers.common['Authorization'] = this.token
             let response = await axios.get(this.url() + 'auth/users/me/',)
-            console.log(response)
             this.username = response.data.username
             this.first_name = response.data.first_name
             this.last_name = response.data.last_name
             this.email = response.data.email
             this.date_birth = response.data.date_birth
+            this.id = response.data.id
         } catch (e) {
             console.log(e)
-            console.log(this.token)
         }
     }
 }
@@ -100,6 +126,7 @@ button {
     margin-top: 4%;
     max-width: 30%;
 }
+
 p {
     margin-top: 20px;
     font-size: 12px;
