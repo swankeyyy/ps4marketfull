@@ -5,8 +5,8 @@
             <div class=" d-flex justify-content-end ps-5">
                 <div class="pe-3"><a href='#' class="header__social"><img src=""
                                                                           class="header__icon"></a>
-                    <a href='#'><img src="" class="header__icon"></a>
-                    <a href='#'><img src="" class="header__icon"></a>
+                    <a href='#'><img src="@/assets/img/tg_header_ico.png" class="header__icon"></a>
+                    <a href='#'><img src="@/assets/img/insta_header_ico.png" class="header__icon"></a>
                 </div>
                 <div>Наш адрес: Лида, Ленина 15</div>
             </div>
@@ -24,5 +24,9 @@ export default {
 <style scoped>
 div {
     font-size: 14px;
+}
+.header__icon {
+    max-height: 22px;
+    margin-right: 10px;
 }
 </style>
