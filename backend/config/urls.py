@@ -9,6 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('drf-auth/', include('rest_framework.urls')),
     path('api/users/', include('users.urls')),
+    path('api/products/', include('products.urls'))
 ]
 
 if settings.DEBUG:

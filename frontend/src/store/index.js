@@ -1,4 +1,5 @@
 import {createStore} from 'vuex'
+import {categories} from "@/store/categories";
 
 
 export default createStore({
@@ -36,7 +37,7 @@ export default createStore({
         }
     },
     modules: {
-
+        categories: categories
     },
 
 })
