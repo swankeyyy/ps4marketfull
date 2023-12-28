@@ -31,13 +31,13 @@
                                               v-model="date_birth">
                     </div>
                 </div>
-                <div class="info_row">Фото профиля:
-                    <div class="inner">
-                        <input type="file" ref="file" class="file-input" @change="filechange"
-                               placeholder="Добавьте фото">
-                        <button @click="uploader">click</button>
-                    </div>
-                </div>
+<!--                <div class="info_row">Фото профиля:-->
+<!--                    <div class="inner">-->
+<!--                        <input type="file" ref="file" class="file-input" @change="filechange"-->
+<!--                               placeholder="Добавьте фото">-->
+<!--                        <button @click="uploader">click</button>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <button type="button" class="btn btn-primary" @click="updater">Обновить</button>
             </div>
         </div>
@@ -67,27 +67,27 @@ export default {
             url: "get_backend_url",
         }),
 
-        filechange() {
-            this.file = this.$refs.file.files.item(0)
-        },
-
-
-        async uploader() {
-            let formData = new FormData();
-            formData.append('file', this.file);
-
-
-            try {
-                let response = await axios.put(this.url() + `api/users/uploadprofile/${this.id}`,
-                    formData,
-
-                )
-                console.log(response);
-            } catch (e) {
-                console.log(e);
-            }
-        }
-        ,
+        // filechange() {
+        //     this.file = this.$refs.file.files.item(0)
+        // },
+        //
+        //
+        // async uploader() {
+        //     let formData = new FormData();
+        //     formData.append('file', this.file);
+        //
+        //
+        //     try {
+        //         let response = await axios.put(this.url() + `api/users/uploadprofile/${this.id}`,
+        //             formData,
+        //
+        //         )
+        //         console.log(response);
+        //     } catch (e) {
+        //         console.log(e);
+        //     }
+        // }
+        // ,
 
         async updater() {
             try {
@@ -98,7 +98,7 @@ export default {
                     'date_birth': this.date_birth
                 }
                 let response = await axios.patch(this.url() + 'auth/users/me/', data)
-                console.log(response)
+                alert("Обновлено")
             } catch (e) {
                 console.log(e)
             }
@@ -114,6 +114,7 @@ export default {
             this.email = response.data.email
             this.date_birth = response.data.date_birth
             this.id = response.data.id
+
         } catch (e) {
             console.log(e)
         }
