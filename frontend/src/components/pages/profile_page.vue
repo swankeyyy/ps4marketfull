@@ -6,32 +6,33 @@
             </div>
             <div class="row user_info">
                 <div class="info_row">Username:
-                    <div class="inner"><input class="form-control" type="text" placeholder="Подтянем с DRF"
+                    <div class="inner"><input class="form-control" type="text" :placeholder="username"
                                               disabled>
                         <button type="button" class="btn btn-primary" disabled>Обновить</button>
                     </div>
                 </div>
                 <div class="info_row">Имя:
-                    <div class="inner"><input class="form-control" type="text" placeholder="Подтянем с DRF"
+                    <div class="inner"><input class="form-control" type="text" placeholder="Введите имя"
+                                              v-model="first_name"
                     >
                         <button type="button" class="btn btn-primary">Обновить</button>
                     </div>
                 </div>
                 <div class="info_row">Фамилия:
-                    <div class="inner"><input class="form-control" type="text" placeholder="Подтянем с DRF"
-                    >
+                    <div class="inner"><input class="form-control" type="text" placeholder="Введите фамилию"
+                    v-model="second_name">
                         <button type="button" class="btn btn-primary">Обновить</button>
                     </div>
                 </div>
                 <div class="info_row">email:
-                    <div class="inner"><input class="form-control" type="text" placeholder="Подтянем с DRF"
-                    >
+                    <div class="inner"><input class="form-control" type="text" placeholder="Почтовый ящик"
+                    v-model="email">
                         <button type="button" class="btn btn-primary">Обновить</button>
                     </div>
                 </div>
                 <div class="info_row">Дата рождения:
-                    <div class="inner"><input class="form-control" type="text" placeholder="Подтянем с DRF"
-                    >
+                    <div class="inner"><input class="form-control" type="text" placeholder="Дата рождения"
+                    v-model="date_birth">
                         <button type="button" class="btn btn-primary">Обновить</button>
                     </div>
                 </div>
@@ -42,8 +43,31 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+
 export default {
-    name: "profile_page"
+    name: "profile_page",
+    data(){
+        return {
+            username: 'Нагибатор2000',
+            first_name: '',
+            second_name: '',
+            email: '',
+            date_birth: '',
+        }
+    },
+    methods:{
+      ...mapGetters({
+          url: "get_backend_url"
+      })
+    },
+    // async created() {
+    //     try {
+    //         let response = await axios.get(this.url() + 'auth/users/me/')
+    //     } catch (e) {
+    //         console.log(e)
+    //     }
+    // }
 }
 </script>
 
