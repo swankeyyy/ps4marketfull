@@ -8,34 +8,35 @@
                 <div class="info_row">Username:
                     <div class="inner"><input class="form-control" type="text" :placeholder="username"
                                               disabled>
-                        <button type="button" class="btn btn-primary" disabled>Обновить</button>
                     </div>
                 </div>
                 <div class="info_row">Имя:
                     <div class="inner"><input class="form-control" type="text" placeholder="Введите имя"
                                               v-model="first_name"
                     >
-                        <button type="button" class="btn btn-primary">Обновить</button>
                     </div>
                 </div>
                 <div class="info_row">Фамилия:
                     <div class="inner"><input class="form-control" type="text" placeholder="Введите фамилию"
                                               v-model="last_name">
-                        <button type="button" class="btn btn-primary">Обновить</button>
                     </div>
                 </div>
                 <div class="info_row">email:
                     <div class="inner"><input class="form-control" type="text" placeholder="Почтовый ящик"
                                               v-model="email">
-                        <button type="button" class="btn btn-primary">Обновить</button>
                     </div>
                 </div>
                 <div class="info_row">Дата рождения:
                     <div class="inner"><input class="form-control" type="date" placeholder="Дата рождения"
                                               v-model="date_birth">
-                        <button type="button" class="btn btn-primary" @click="updater">Обновить</button>
                     </div>
                 </div>
+                <div class="info_row">Фото профиля:
+                    <div class="inner"><input class="form-control" type="text" placeholder="Почтовый ящик"
+                                              v-model="email">
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary" @click="updater">Обновить</button>
             </div>
         </div>
     </div>
@@ -95,6 +96,10 @@ export default {
 </script>
 
 <style scoped>
+button {
+    margin-top: 4%;
+    max-width: 30%;
+}
 p {
     margin-top: 20px;
     font-size: 12px;
