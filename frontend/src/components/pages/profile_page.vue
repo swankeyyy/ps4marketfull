@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="img_container">
-                <img src="@/assets/img/profile_profile_page.jpg" alt="profile_img" class="profile_img">
+                <img src="@/assets/img/profile_avatar.jpg" alt="profile_img" class="profile_img">
             </div>
             <div class="row user_info">
                 <div class="info_row">Username:
@@ -31,14 +31,17 @@
                                               v-model="date_birth">
                     </div>
                 </div>
-<!--                <div class="info_row">Фото профиля:-->
-<!--                    <div class="inner">-->
-<!--                        <input type="file" ref="file" class="file-input" @change="filechange"-->
-<!--                               placeholder="Добавьте фото">-->
-<!--                        <button @click="uploader">click</button>-->
-<!--                    </div>-->
-<!--                </div>-->
-                <button type="button" class="btn btn-primary" @click="updater">Обновить</button>
+                <!--                <div class="info_row">Фото профиля:-->
+                <!--                    <div class="inner">-->
+                <!--                        <input type="file" ref="file" class="file-input" @change="filechange"-->
+                <!--                               placeholder="Добавьте фото">-->
+                <!--                        <button @click="uploader">click</button>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <div class="buttons_group">
+                    <button type="button" class="btn btn-primary" @click="updater">Обновить</button>
+                    <button type="button" class="btn btn-success" @click="this.$router.push('/')">Назад</button>
+                </div>
             </div>
         </div>
     </div>
@@ -123,9 +126,13 @@ export default {
 </script>
 
 <style scoped>
+.buttons_group{
+    display: flex;
+    justify-content: space-between;
+}
 button {
     margin-top: 4%;
-    max-width: 30%;
+    width: 30%;
 }
 
 p {

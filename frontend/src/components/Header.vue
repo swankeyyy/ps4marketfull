@@ -2,7 +2,7 @@
     <header>
         <div class="container">
             <topline/>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #d2d4d6">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">PS4Shop</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
