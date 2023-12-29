@@ -8,47 +8,9 @@
                 <div class="col ps-3 mt-2">
                     <section>
                         <div class="row row-cols-3">
-                            <div class="col">
-                                <div class="card p-1 ms-1">
-                                    <img src="img/rdr.jpg" class="card-img-top p-1" alt="">
-                                    <div class="card-body ms-2">
-                                        <h5 class="card-title">Card title</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                        <p class="card-text ">Some quick example text to build on the card title and
-                                            make
-                                            up the bulk of the card's content.</p>
-                                        <a href="#" class="btn btn-outline-secondary">Перейти к описанию</a>
-                                    </div>
-                                </div>
+                            <div class="col" v-for="product in products" :key="product.id">
+                            <product_card :product="product"/>
                             </div>
-                            <div class="col">
-                                <div class="card p-1 ms-1">
-                                    <img src="img/rdr.jpg" class="card-img-top p-1" alt="">
-                                    <div class="card-body ms-2">
-                                        <h5 class="card-title">Card title</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                        <p class="card-text ">Some quick example text to build on the card title and
-                                            make
-                                            up the bulk of the card's content.</p>
-                                        <a href="#" class="btn btn-outline-secondary">Перейти к описанию</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card p-1">
-                                    <img src="img/rdr.jpg" class="card-img-top p-1" alt="">
-                                    <div class="card-body ms-2">
-                                        <h5 class="card-title">Card title</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                        <p class="card-text ">Some quick example text to build on the card title and
-                                            make
-                                            up the bulk of the card's content.</p>
-                                        <a href="#" class="btn btn-outline-secondary">Перейти к описанию</a>
-                                    </div>
-                                </div>
-                            </div>
-
-
                         </div>
                     </section>
                 </div>
@@ -59,10 +21,26 @@
 
 <script>
 import Sidebar from "@/components/UI/body/sidebar.vue";
+import Product_card from "@/components/UI/body/product_card.vue";
+import {mapActions, mapGetters} from "vuex";
 
 export default {
     name: "Home",
-    components: {Sidebar}
+    components: {Product_card, Sidebar},
+    computed: {
+        ...mapGetters({
+            products: "get_products_list"
+        }),
+
+    },
+    methods: {
+        ...mapActions({
+            loadProducts: "loadProducts"
+        })
+    },
+    async created() {
+        await this.loadProducts()
+    }
 }
 </script>
 
