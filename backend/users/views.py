@@ -6,4 +6,10 @@ from .forms import UploadForm
 
 
 class PhotoUploadView(APIView):
-    pass
+    def put(self, request):
+        pass
+
+class AllProductsView(APIView):
+
+    def get(self, request):
+        pass
