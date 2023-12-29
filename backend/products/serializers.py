@@ -8,8 +8,18 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = '__all__'
 
-class ProductSerializer(serializers.ModelSerializer):
+class ProductsAllSerializer(serializers.ModelSerializer):
+    """Serializer for Home page"""
+
+    class Meta:
+        model = Product
+        fields = ("title", "short_description", "poster", "price", "url")
+
+
+
+class SingleProductSerializer(serializers.ModelSerializer):
     """Serializer for products item"""
+    categories = serializers.SlugRelatedField(slug_field="name", read_only=True, many=True)
     class Meta:
         model = Product
         fields = "__all__"
