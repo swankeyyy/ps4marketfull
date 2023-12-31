@@ -6,6 +6,6 @@ from .forms import UploadForm
 
 
 class PhotoUploadView(APIView):
-    def put(self, request):
+    def post(self, request):
         pass
 
