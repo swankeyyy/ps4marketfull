@@ -3,6 +3,7 @@ import {categories} from "@/store/categories";
 import {products_list} from "@/store/products_list";
 
 
+
 export default createStore({
     state: {
         isAuth: false,
@@ -38,6 +39,7 @@ export default createStore({
     modules: {
         categories: categories,
         products_list: products_list,
+
     },
 
 })

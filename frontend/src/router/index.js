@@ -7,7 +7,7 @@ import DetailView from "@/views/DetailView.vue";
 
 const routes = [
     {
-        path: '',
+        path: '/',
         name: 'home',
         component: HomeView
     },
@@ -24,7 +24,10 @@ const routes = [
     {
         path: '/games/:slug',
         name: 'single',
-        component: DetailView
+        component: DetailView,
+        props: true
+
+
     }
 
 ]

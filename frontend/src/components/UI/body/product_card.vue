@@ -1,5 +1,4 @@
 <template>
-
     <div class="card p-1 mt-1">
         <img :src="url + product.poster" class="card-img-top p-1 c_img" alt="">
         <div class="card-body ms-2">
@@ -8,14 +7,10 @@
             <p class="card-text" v-if="product.short_description.length<90"
             >{{ product.short_description }}</p>
             <p class="card-text" v-else>{{ product.short_description.substring(0, 90) + ".." }}</p>
-            <a :href="'games/' + product.url" class="btn btn-outline-secondary btn-text"
-
-            >Перейти к описанию</a>
-
+            <router-link :to="{name: 'single', params: {slug: product.url}}"  class="btn btn-outline-secondary btn-text"
+            >Перейти к описанию</router-link>
         </div>
     </div>
-
-
 </template>
 
 <script>
