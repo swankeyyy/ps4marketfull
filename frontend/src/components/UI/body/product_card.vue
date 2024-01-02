@@ -47,7 +47,13 @@ export default {
     font-weight: bolder;
 }
 
-.c_img {
-
+.card{
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.6);
+    transition: all .3s;
 }
+
+.card:hover{
+    box-shadow: 0 14px 30px -15px rgba(0,0,0,0.75);
+}
+
 </style>

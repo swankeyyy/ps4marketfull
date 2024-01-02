@@ -22,7 +22,7 @@ const routes = [
         component: ProfileView
     },
     {
-        path: '/games',
+        path: '/games/:slug',
         name: 'single',
         component: DetailView
     }
