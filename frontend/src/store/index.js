@@ -1,12 +1,13 @@
 import {createStore} from 'vuex'
 import {categories} from "@/store/categories";
+import {products_list} from "@/store/products_list";
+
 
 
 export default createStore({
     state: {
         isAuth: false,
         backend_url: 'http://127.0.0.1:8000/',
-
     },
     getters: {
         get_backend_url(state) {
@@ -18,7 +19,6 @@ export default createStore({
         get_auth(state) {
             return state.isAuth
         }
-
     },
     mutations: {
         set_token(state, token) {
@@ -37,7 +37,9 @@ export default createStore({
         }
     },
     modules: {
-        categories: categories
+        categories: categories,
+        products_list: products_list,
+
     },
 
 })

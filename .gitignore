@@ -152,3 +152,4 @@
 /node_modules/combined-stream/yarn.lock
 /node_modules/axios/lib/helpers/ZlibHeaderTransformStream.js
 /backend/products/migrations/
+/backend/static/ckeditor/

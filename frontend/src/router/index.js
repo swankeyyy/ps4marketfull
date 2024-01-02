@@ -2,11 +2,12 @@ import {createRouter, createWebHistory} from 'vue-router'
 import HomeView from "@/views/HomeView.vue";
 import RegistrationView from "@/views/RegistrationView.vue";
 import ProfileView from "@/views/ProfileView.vue";
+import DetailView from "@/views/DetailView.vue";
 
 
 const routes = [
     {
-        path: '',
+        path: '/',
         name: 'home',
         component: HomeView
     },
@@ -19,6 +20,14 @@ const routes = [
         path: '/profile',
         name: 'profile',
         component: ProfileView
+    },
+    {
+        path: '/games/:slug',
+        name: 'single',
+        component: DetailView,
+        props: true
+
+
     }
 
 ]

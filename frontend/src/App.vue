@@ -7,7 +7,7 @@
 <style>
 .container {
     font-size: 20px;
-    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-family: FreeMono, monospace;
 }
 body {
     background-color: #f0f1f2;
