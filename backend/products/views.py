@@ -15,6 +15,7 @@ class AllCategoriesView(APIView):
 
 class AllProductsView(APIView):
     """View for main page"""
+
     def get(self, request):
         products = Product.objects.all()
         serializer = ProductsAllSerializer(products, many=True)
@@ -23,7 +24,17 @@ class AllProductsView(APIView):
 
 class SingleProductView(APIView):
     """Detail Product View"""
+
     def get(self, request, url):
         product = Product.objects.get(url=url)
         serializer = SingleProductSerializer(product)
+        return Response(serializer.data)
+
+
+class SelectedCategoriesView(APIView):
+    """View for selected categories"""
+
+    def get(self, request, url):
+        products = Product.objects.filter(url=url)
+        serializer = ProductsAllSerializer(products, many=True)
         return Response(serializer.data)

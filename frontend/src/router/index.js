@@ -3,6 +3,7 @@ import HomeView from "@/views/HomeView.vue";
 import RegistrationView from "@/views/RegistrationView.vue";
 import ProfileView from "@/views/ProfileView.vue";
 import DetailView from "@/views/DetailView.vue";
+import CategoriesView from "@/views/CategoriesView.vue";
 
 
 const routes = [
@@ -26,9 +27,13 @@ const routes = [
         name: 'single',
         component: DetailView,
         props: true
-
-
-    }
+    },
+    {
+        path: '/categories/:slug',
+        name: 'change_categories',
+        component: CategoriesView,
+        props: true
+     }
 
 ]
 
