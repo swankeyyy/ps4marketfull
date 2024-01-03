@@ -153,3 +153,4 @@
 /node_modules/axios/lib/helpers/ZlibHeaderTransformStream.js
 /backend/products/migrations/
 /backend/static/ckeditor/
+/backend/basket/migrations/
