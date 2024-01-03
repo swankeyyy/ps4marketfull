@@ -45,8 +45,8 @@ export default {
     async created() {
         try {
             let response = await axios.get(`http://127.0.0.1:8000/api/products/categories/${this.url}`)
+            this.products = response.data
 
-            console.log(response.data)
         } catch (e) {
             console.log(e)
         }

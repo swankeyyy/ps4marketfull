@@ -35,6 +35,6 @@ class SelectedCategoriesView(APIView):
     """View for selected categories"""
 
     def get(self, request, url):
-        products = Product.objects.filter(url=url)
+        products = Product.objects.filter(categories__url=url)
         serializer = ProductsAllSerializer(products, many=True)
         return Response(serializer.data)

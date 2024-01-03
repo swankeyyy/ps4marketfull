@@ -29,7 +29,7 @@ const routes = [
         props: true
     },
     {
-        path: '/categories/:slug',
+        path: '/:slug',
         name: 'change_categories',
         component: CategoriesView,
         props: true
