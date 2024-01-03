@@ -5,7 +5,7 @@
             Категории
         </a>
         <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item " href="#" v-for="category in get_categories"
+            <li><a class="dropdown-item "  v-for="category in get_categories" :href="category.url"
                    key="category.id">{{ category.name }}</a></li>
         </ul>
     </li>
