@@ -1,5 +1,6 @@
 <template>
   <profile_page />
+
 </template>
 
 <script>

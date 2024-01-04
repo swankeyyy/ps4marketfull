@@ -75,9 +75,9 @@ export default {
         try {
             let response = await axios.get(`http://127.0.0.1:8000/api/products/${this.slug}`)
             this.item = response.data
-            console.log(this.item)
+
         } catch (e) {
-            console.log(e)
+
         }
     }
 }

@@ -16,10 +16,13 @@
                     </div>
                     <div class="modal-body">
 
-                        <ul>
+                        <ul v-if="!empty">
                             <li v-for="item in basket" :key="item.id"
-                            >{{item.product.title}} - {{item.product.price}}р.</li>
-
+                            >{{ item.product.title }} - {{ item.quantity }}шт.
+                            </li>
+                        </ul>
+                        <ul v-else>
+                            <li>Корзина пуста</li>
                         </ul>
                     </div>
                     <div class="modal-footer">
@@ -44,7 +47,8 @@ export default {
     name: "basket_bar",
     data() {
         return {
-            id: null
+            id: null,
+            empty: false
         }
     },
     computed: {
@@ -69,15 +73,15 @@ export default {
             this.id = response.data.id
             this.set_user_id(this.id)
             response = await axios.get(this.url + 'api/basket/basket/' + this.id)
-            this.set_basket(response.data.basket)
-            console.log(this.basket)
+            if (response.data.basket !== 'null') {
+                this.set_basket(response.data.basket)
+            } else {
+                this.empty = true
+            }
+
         }
 
     },
-    created() {
-        // this.loadBasket()
-    }
-
 }
 </script>
 

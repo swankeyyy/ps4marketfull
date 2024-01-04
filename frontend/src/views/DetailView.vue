@@ -1,15 +1,17 @@
 <template>
     <Header/>
     <Detail :slug="slug"/>
+    <Footer />
 </template>
 
 <script>
 import Header from "@/components/Header.vue";
 import Detail from "@/components/Detail.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
     name: "DetailView",
-    components: {Detail, Header},
+    components: {Footer, Detail, Header},
     props: {
         slug: {
             required: true,

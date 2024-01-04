@@ -1,21 +1,4 @@
-<!doctype html>
-<html lang="ru">
-
-<head>
-    <!-- Обязательные метатеги -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link href="css/style.css" rel="stylesheet">
-    <title>Hello, world!</title>
-</head>
-
-<body>
-
-
+<template>
     <footer>
         <div class="container bg-light mt-2 p-1">
             <div class="row mt-2">
@@ -23,7 +6,7 @@
                 <div class="col-sm-8 mt-1 p-1">
                     <div class="input-group mb-3 mt-2 ms-2">
                         <input type="text" class="form-control" placeholder="Recipient's username"
-                            aria-label="Введите адрес почты" aria-describedby="basic-addon2">
+                               aria-label="Введите адрес почты" aria-describedby="basic-addon2">
                         <button type="button" class="btn btn-outline-secondary">Отправить</button>
                     </div>
                 </div>
@@ -40,22 +23,16 @@
             </div>
 
 
-
         </div>
     </footer>
+</template>
 
+<script>
+export default {
+    name: "Footer"
+}
+</script>
 
+<style scoped>
 
-
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-        crossorigin="anonymous"></script>
-
-
-</body>
-
-</html>
+</style>

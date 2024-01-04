@@ -5,8 +5,12 @@
             Категории
         </a>
         <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item "  v-for="category in get_categories" :href="category.url"
-                   key="category.id">{{ category.name }}</a></li>
+            <li>
+                <router-link class="dropdown-item " v-for="category in get_categories"
+                             :key="category.id" :to="{name: 'change_categories', params: {slug: category.url}}">
+                    {{ category.name }}
+                </router-link>
+            </li>
         </ul>
     </li>
 </template>
