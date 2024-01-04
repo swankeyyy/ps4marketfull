@@ -38,9 +38,11 @@ import Profile_link_bar from "@/components/UI/header/profile_link_bar.vue";
 import Contacts_link_header from "@/components/UI/header/contacts_link_header.vue";
 import About_link_header from "@/components/UI/header/about_link_header.vue";
 import Main_page_link_header from "@/components/UI/header/main_page_link_header.vue";
+import {mapActions, mapGetters} from "vuex";
 
 export default {
     name: "Header",
+
     components: {
         Main_page_link_header,
         About_link_header,

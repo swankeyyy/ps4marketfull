@@ -1,18 +1,16 @@
-from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Basket
 from .serializers import BasketSerializer
-from users.models import User
-from products.models import Product
+
 
 
 class BasketView(APIView):
     def get(self, request, pk):
-        basket = Basket.objects.filter(user__id=pk)
+        basket = Basket.objects.filter(user_id=pk)
         if basket:
             serializer = BasketSerializer(basket, many=True)
-            return Response(serializer.data)
+            return Response({'basket': serializer.data})
         return Response({'basket': 'null'})
 
     def post(self, request, pk):

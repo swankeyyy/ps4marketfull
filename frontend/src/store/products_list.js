@@ -19,7 +19,7 @@ export const products_list = {
             try {
                 let response = await axios.get( 'http://127.0.0.1:8000/api/products/products/')
                 commit('setProducts_list', response.data)
-                console.log(response.data)
+
             } catch (e) {
                 console.log(e)
             }
