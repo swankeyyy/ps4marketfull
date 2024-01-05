@@ -2,7 +2,7 @@
     <div class="container">
         <h2>Список покупок</h2>
         <div class="list">
-            <p v-if="empty">Корзина пуста(</p>
+            <p v-if="empty">Корзина пустая(</p>
             <div v-else>
                 <p v-for="item in items">{{item.product.title}} - {{item.quantity}} шт. По цене: {{item.product.price}}
                 за штуку</p>
