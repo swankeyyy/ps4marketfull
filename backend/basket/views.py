@@ -7,9 +7,13 @@ from .serializers import BasketSerializer
 class BasketView(APIView):
     def get(self, request, pk):
         basket = Basket.objects.filter(user_id=pk)
+        total = 0
         if basket:
+            for b in basket:
+                total += b.quantity * b.product.price
+
             serializer = BasketSerializer(basket, many=True)
-            return Response({'basket': serializer.data})
+            return Response({'basket': serializer.data, 'total_price': total})
         return Response({'basket': 'null'})
 
     def post(self, request, pk):

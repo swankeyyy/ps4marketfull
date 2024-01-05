@@ -6,6 +6,7 @@
             <div v-else>
                 <p v-for="item in items">{{item.product.title}} - {{item.quantity}} шт. По цене: {{item.product.price}}
                 за штуку</p>
+                <h3>Итого: {{total}} рублей</h3>
             </div>
             <button type="button" class="btn btn-success">Заказать
             </button>
@@ -22,7 +23,8 @@ export default {
     data() {
         return {
             items: [],
-            empty: false
+            empty: false,
+            total: null
         }
     },
     computed: {
@@ -43,6 +45,7 @@ export default {
             }
             else {
                 this.items = response.data.basket
+                this.total = response.data.total_price
             }
         } catch(e) {
 
@@ -52,6 +55,10 @@ export default {
 </script>
 
 <style scoped>
+h3 {
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
 .container {
     margin-top: 8%;
     margin-bottom: 2%;
