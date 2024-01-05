@@ -3,13 +3,13 @@
         <div class="container mt-5">
             <div class="row">
                 <div class="col-2">
-                    <sidebar />
+                    <sidebar/>
                 </div>
                 <div class="col ps-3 mt-2">
                     <section>
                         <div class="row row-cols-3">
                             <div class="col" v-for="product in products" :key="product.id">
-                            <product_card :product="product"/>
+                                <product_card :product="product"/>
                             </div>
                         </div>
                     </section>
@@ -38,8 +38,8 @@ export default {
             loadProducts: "loadProducts"
         })
     },
-    async created() {
-        await this.loadProducts()
+    created() {
+        this.loadProducts()
     }
 }
 </script>

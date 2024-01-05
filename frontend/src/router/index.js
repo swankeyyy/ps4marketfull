@@ -4,6 +4,7 @@ import RegistrationView from "@/views/RegistrationView.vue";
 import ProfileView from "@/views/ProfileView.vue";
 import DetailView from "@/views/DetailView.vue";
 import CategoriesView from "@/views/CategoriesView.vue";
+import OrderView from "@/views/OrderView.vue";
 
 
 const routes = [
@@ -33,7 +34,13 @@ const routes = [
         name: 'change_categories',
         component: CategoriesView,
         props: true
-     }
+    },
+    {
+        path: '/order',
+        name: 'order',
+        component: OrderView,
+        props: true,
+    }
 
 ]
 

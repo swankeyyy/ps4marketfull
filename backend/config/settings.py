@@ -38,13 +38,14 @@ INSTALLED_APPS = [
 
     'products',
     'users',
-
+    'basket',
     'rest_framework',
     'rest_framework.authtoken',
     'djoser',
     "corsheaders",
     'ckeditor',
     'ckeditor_uploader',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [

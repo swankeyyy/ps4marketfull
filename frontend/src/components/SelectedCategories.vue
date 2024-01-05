@@ -41,15 +41,22 @@ export default {
         }
     },
     computed: {},
-    methods: {},
-    async created() {
-        try {
-            let response = await axios.get(`http://127.0.0.1:8000/api/products/categories/${this.url}`)
-            this.products = response.data
+    methods: {
+        async loaddata() {
+            try {
+                let response = await axios.get(`http://127.0.0.1:8000/api/products/categories/${this.url}`)
+                this.products = response.data
 
-        } catch (e) {
-            console.log(e)
+            } catch (e) {
+                console.log(e)
+            }
         }
+    },
+    watch: {}
+    ,
+
+    created() {
+        this.loaddata()
     }
 }
 </script>

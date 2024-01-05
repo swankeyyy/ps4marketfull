@@ -3,8 +3,8 @@
         <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
             <div class="position-sticky">
                 <div class="list-group list-group-flush ">
-                    <a  class="list-group-item list-group-item-action py-2 ripple item-card"
-                    v-for="category in categories" :href ="category.url">
+                    <a :href="category.url" class="list-group-item list-group-item-action py-2 ripple item-card"
+                    v-for="category in categories" >
                         <i class="fas fa-chart-area fa-fw me-3"></i><span>{{category.name}}</span>
                     </a>
                 </div>
