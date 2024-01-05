@@ -30,7 +30,9 @@
                         <button type="button" class="btn btn-secondary"
                                 data-bs-dismiss="modal">Закрыть
                         </button>
-                        <button type="button" class="btn btn-primary">Перейти к
+                        <button type="button" class="btn btn-primary"
+                        @click="$router.push({name: 'order'})" data-bs-dismiss="modal"
+                        >Перейти к
                             оформлению
                         </button>
                     </div>
@@ -54,17 +56,17 @@ export default {
         }
     },
     computed: {
-
         ...mapGetters({
             url: "get_backend_url"
         })
     },
-    watch: {
 
-    },
     methods: {
         ...mapGetters({
             get_auth: "get_auth",
+        }),
+        ...mapMutations({
+           set_user_id: "set_user_id"
         }),
         async remove(item) {
             let response = await axios.delete(this.url + 'api/basket/basket/' + this.id,
@@ -80,7 +82,7 @@ export default {
         async loadBasket() {
             let response = await axios.get(this.url + 'auth/users/me/',)
             this.id = response.data.id
-
+            this.set_user_id(this.id)
             response = await axios.get(this.url + 'api/basket/basket/' + this.id)
             if (response.data.basket !== 'null') {
                 this.basket = (response.data.basket)
