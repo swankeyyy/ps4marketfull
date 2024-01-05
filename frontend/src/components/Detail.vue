@@ -40,7 +40,7 @@
                                 </div>
                             </div>
                             <div class="comments">
-                                <comments :item_id="item.id"/>
+                                <comments :comments="comments" :no_comments="no_comments"/>
 
 
                             </div>
@@ -72,6 +72,8 @@ export default {
     data() {
         return {
             item: {},
+            comments: [],
+            no_comments: false,
             product_id: null,
             user_id: null,
             inbasket: false,
@@ -82,25 +84,27 @@ export default {
     computed: {
         ...mapGetters({
             url: "get_backend_url",
+        }),
 
-
-        })
     },
 
     methods: {
         async buy() {
-            let response = await axios.get(this.url + 'auth/users/me/',)
-            this.user_id = response.data.id
+            await this.get_user_id()
             let data = {
                 'product_id': this.product_id,
                 'product_quantity': 1
             }
-            response = await axios.post(this.url + `api/basket/basket/${this.user_id}`,
+            let response = await axios.post(this.url + `api/basket/basket/${this.user_id}`,
                 data)
             if (response.status === 200) {
                 this.inbasket = true
                 this.text = 'В корзине'
             }
+        },
+        async get_user_id() {
+            let response = await axios.get(this.url + 'auth/users/me/',)
+            this.user_id = response.data.id
         }
     },
 
@@ -109,10 +113,16 @@ export default {
             let response = await axios.get(`http://127.0.0.1:8000/api/products/${this.slug}`)
             this.item = response.data
             this.product_id = response.data.id
-
+            let comment = await axios.get(this.url + `api/comment/${this.product_id}`)
+            if (comment.data.comments === 'null') {
+                this.no_comments = true
+            } else {
+                this.comments = comment.data.comments
+            }
+            console.log(response.data)
 
         } catch (e) {
-
+            console.log(e)
         }
     }
 }
