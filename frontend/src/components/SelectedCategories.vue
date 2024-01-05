@@ -42,6 +42,8 @@ export default {
     },
     computed: {},
     methods: {},
+
+
     async created() {
         try {
             let response = await axios.get(`http://127.0.0.1:8000/api/products/categories/${this.url}`)

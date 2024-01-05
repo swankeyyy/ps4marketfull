@@ -18,8 +18,9 @@
 
                         <ul v-if="!empty">
                             <li v-for="item in basket" :key="item.id"
-                            >{{ item.product.title }} - {{ item.quantity }}шт.
-                            </li>
+                            >{{ item.product.title }} - {{ item.quantity }} шт.
+                                <a href="#" @click="remove(item.id)"><img src="@/assets/img/trash.png"
+                                                                          height="20px"></a></li>
                         </ul>
                         <ul v-else>
                             <li>Корзина пуста</li>
@@ -48,39 +49,45 @@ export default {
     data() {
         return {
             id: null,
-            empty: false
+            empty: false,
+            basket: []
         }
     },
     computed: {
 
         ...mapGetters({
-            basket: "get_basket",
             url: "get_backend_url"
         })
     },
+    watch: {
+
+    },
     methods: {
-        ...mapMutations({
-            set_basket: "set_basket",
-            set_user_id: "set_user_id"
-        }),
         ...mapGetters({
             get_auth: "get_auth",
-
         }),
-
+        async remove(item) {
+            let response = await axios.delete(this.url + 'api/basket/basket/' + this.id,
+                {
+                    data: {
+                        'basket_id': item
+                    }
+                })
+            if (response.data.status_del === 'done') {
+                await this.loadBasket()
+            }
+        },
         async loadBasket() {
             let response = await axios.get(this.url + 'auth/users/me/',)
             this.id = response.data.id
-            this.set_user_id(this.id)
+
             response = await axios.get(this.url + 'api/basket/basket/' + this.id)
             if (response.data.basket !== 'null') {
-                this.set_basket(response.data.basket)
+                this.basket = (response.data.basket)
             } else {
                 this.empty = true
             }
-
         }
-
     },
 }
 </script>

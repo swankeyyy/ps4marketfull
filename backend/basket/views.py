@@ -29,8 +29,11 @@ class BasketView(APIView):
         # basket.save()
         return Response(serializer.data)
 
+    def delete(self, request, pk):
+        print(request.data)
+        basket = Basket.objects.filter(user_id=pk, id=request.data.get('basket_id')).first()
+        if basket:
 
-def delete(self, request, pk):
-    basket = Basket.objects.get(user__id=pk, id=request.data.get('basket_id'))
-    basket.delete()
-    return Response({'status_del': 'done'})
+            basket.delete()
+            return Response({'status_del': 'done'})
+        return Response({'basket': 'корзина не найдена'})

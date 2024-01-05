@@ -80,6 +80,7 @@ export default {
 
         })
     },
+
     methods: {
         async buy() {
             let response = await axios.get(this.url + 'auth/users/me/',)
