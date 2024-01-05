@@ -30,13 +30,18 @@
                                     </div>
                                     <button type="button" class="btn btn-warning p-2"
                                             @click="buy"
-                                    v-bind:disabled="inbasket"
-                                    >{{text}}</button>
+                                            v-bind:disabled="inbasket"
+                                    >{{ text }}
+                                    </button>
                                 </div>
                             </div>
                             <div class="row ps-2 pe-2 mt-2 mb-4">
                                 <div v-html="item.description" class="content_text">
                                 </div>
+                            </div>
+                            <div class="comments">
+                                <comments :item_id="item.id"/>
+
 
                             </div>
 
@@ -52,11 +57,12 @@
 import Sidebar from "@/components/UI/body/sidebar.vue";
 import {mapActions, mapGetters} from "vuex";
 import axios from "axios";
+import Comments from "@/components/UI/body/comments.vue";
 
 
 export default {
     name: "Detail",
-    components: {Sidebar},
+    components: {Comments, Sidebar},
     props: {
         slug: {
             required: true,
