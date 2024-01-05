@@ -27,10 +27,7 @@ class BasketView(APIView):
                                            quantity=request.data.get('product_quantity'))
             basket.save()
         serializer = BasketSerializer(basket)
-        # basket = Basket.objects.create(user_id=pk,
-        #                                product_id=request.data.get('product_id'),
-        #                                quantity=request.data.get('product_quantity'))
-        # basket.save()
+
         return Response(serializer.data)
 
     def delete(self, request, pk):
