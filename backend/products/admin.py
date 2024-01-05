@@ -10,7 +10,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ("title", "url", "aviable", "is_published",)
+    list_display = ("id", "title", "url", "aviable", "is_published",)
     list_filter = ("categories", "title")
     prepopulated_fields = {"url": ("title",)}
     search_fields = ("title",)

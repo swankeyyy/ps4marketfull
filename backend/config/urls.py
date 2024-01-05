@@ -30,7 +30,8 @@ urlpatterns = [
     path('drf-auth/', include('rest_framework.urls')),
     path('api/users/', include('users.urls')),
     path('api/products/', include('products.urls')),
-    path('api/basket/', include('basket.urls'))
+    path('api/basket/', include('basket.urls')),
+    path('api/comment/', include('comment.urls'))
 ]
 
 if settings.DEBUG:
