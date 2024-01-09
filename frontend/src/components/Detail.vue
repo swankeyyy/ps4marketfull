@@ -40,7 +40,8 @@
                                 </div>
                             </div>
                             <div class="comments">
-                                <comments :comments="comments" :no_comments="no_comments"/>
+                                <comments :comments="comments" :no_comments="no_comments"
+                                          :user_id="user_id" :product_id="product_id"/>
 
 
                             </div>
@@ -119,7 +120,7 @@ export default {
             } else {
                 this.comments = comment.data.comments
             }
-            console.log(response.data)
+            console.log(comment.data)
 
         } catch (e) {
             console.log(e)

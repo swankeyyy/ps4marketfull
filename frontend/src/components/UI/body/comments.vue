@@ -2,9 +2,10 @@
     <div>
         <div>
             <h5>Оставить комментарий</h5>
-            <textarea class="comment_area"></textarea>
+            <textarea class="comment_area" v-model="body">{{body}}</textarea>
             <br>
-            <button >Отправить</button>
+            <button @click="checker">Proverka</button>
+            <button @click="createComment">Отправить</button>
             <h4 class="comment_title">Комментарии</h4>
             <div v-if="no_comments">
                 <h5>Пока комментариев нет:(</h5>
@@ -23,11 +24,20 @@
 </template>
 
 <script>
+
+
 import axios from "axios";
 import {mapGetters} from "vuex";
 
 export default {
     name: "comments",
+    data() {
+        return {
+            body: 'Поделитесь впечатлениями...',
+            comms: this.comments,
+            empty: this.no_comments
+        }
+    },
 
     props: {
         comments: {
@@ -35,33 +45,45 @@ export default {
         },
         no_comments: {
             required: true
+        },
+
+        product_id: {
+            required: true
         }
     },
     computed: {
         ...mapGetters({
-            url: "get_backend_url"
-        })
-    },
-    // methods: {
-    // //     click() {
-    // //         console.log(this.item_id)
-    // //     },
-    // //     async loadComments() {
-    // //
-    // //             let response = await axios.get(this.url + `api/comment/${this.item_id}`)
-    // //             if (response.data.comments === 'null') {
-    // //                 this.no_comments = true
-    // //             } else {
-    // //                 this.comments = response.data.comments
-    // //             }
-    // //             console.log(response.data)
-    // //
-    // //     }
-    // // },
-    // async created() {
-    //     await this.loadComments()
-    // }
+            url: "get_backend_url",
 
+        }),
+
+
+    },
+    methods: {
+        async get_user_id() {
+            let response = await axios.get(this.url + 'auth/users/me/',)
+            this.user_id = response.data.id
+        },
+        async createComment() {
+            await this.get_user_id()
+            let response = await axios.post(this.url + `api/comment/${this.product_id}`,
+                {
+                    'user_id': this.user_id,
+                    'body': this.body
+                }
+            )
+            if (response.status === 200) {
+                console.log(response)
+                this.comms = response.data.comments
+                this.empty = false
+            }
+            console.log(response)
+        },
+        async checker() {
+            await this.get_user_id()
+            console.log(this.comms)
+        }
+    }
 }
 </script>
 
@@ -77,7 +99,7 @@ export default {
 
 .comment_wrapper {
     padding: 10px;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.6);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.6);
     margin: 25px 0;
 }
 
