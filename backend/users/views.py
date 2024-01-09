@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from requests import Response
+from rest_framework.parsers import FileUploadParser, FormParser, MultiPartParser
+from rest_framework.views import APIView
+from .models import User
+from .forms import UploadForm
 
-# Create your views here.
+
+class PhotoUploadView(APIView):
+    def post(self, request):
+        pass
+
